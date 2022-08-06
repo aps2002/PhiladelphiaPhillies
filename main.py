@@ -43,15 +43,14 @@ class Average:
         return self.avg
 
 
-    def convertToWebsite(self, websiteName):
+    def convertToWebsite(self):
         result = self.sorted_df.to_html()
 
-        text_file = open(websiteName, "w")
-        text_file.write("<h1>Projected Salary</h1>")
-        text_file.write("<h3>"+str(self.avg)+"</h3>")
+        text_file = ""
+        text_file+="<h1>Projected Salary</h1>"
+        text_file+=("<h3>"+str(self.avg)+"</h3>")
 
-        text_file.write(result)
-        text_file.close()
+        text_file+=(result)
         return text_file
 
 avgOne = Average('https://questionnaire-148920.appspot.com/swe/data.html', "output.csv", 125)
@@ -59,4 +58,4 @@ avgOne.getData()
 avgOne.convertToDf("output.csv")
 avgOne.topXContracts()
 print(avgOne.getAverage())
-avgOne.convertToWebsite("index.html")
+print(avgOne.convertToWebsite())
