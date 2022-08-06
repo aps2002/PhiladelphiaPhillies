@@ -8,6 +8,7 @@ class Average:
         self.url  =url
         self.outputFile = outputFile
         self.numTops = numTops
+        self.avg=0
 
     def getData(self):
         html = urlopen(self.url).read()
@@ -44,18 +45,68 @@ class Average:
 
 
     def convertToWebsite(self):
-        result = self.sorted_df.to_html()
+        result = self.topXPlayers.to_html()
 
-        text_file = ""
+        text_file = '''
+        <style>
+        /* Style the button that is used to open and close the collapsible content */
+        .collapsible {
+          background-color: #eee;
+          color: #444;
+          cursor: pointer;
+          padding: 18px;
+          width: 100%;
+          border: none;
+          text-align: left;
+          outline: none;
+          font-size: 15px;
+        }
+
+        /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+        .active, .collapsible:hover {
+          background-color: #ccc;
+        }
+
+        /* Style the collapsible content. Note: hidden by default */
+        .content {
+          padding: 0 18px;
+          display: none;
+          overflow: hidden;
+          background-color: #f1f1f1;
+        }
+        </style>
+        <body>
+        '''
         text_file+="<h1>Projected Salary</h1>"
-        text_file+=("<h3>"+str(self.avg)+"</h3>")
-
+        text_file+=("<h3>"+str(self.getAverage())+"</h3>")
+        text_file += '<div class="content">'
         text_file+=(result)
+        text_file += '''
+        <script>
+          var coll = document.getElementsByClassName("collapsible");
+          var i;
+
+          for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function() {
+              this.classList.toggle("active");
+              var content = this.nextElementSibling;
+              if (content.style.display === "block") {
+                content.style.display = "none";
+              } else {
+                content.style.display = "block";
+              }
+            });
+          }
+        </script>
+        <p><a href="/">Click here to calculate again</a>
+        </body>
+        '''
         return text_file
 
 avgOne = Average('https://questionnaire-148920.appspot.com/swe/data.html', "output.csv", 125)
 avgOne.getData()
 avgOne.convertToDf("output.csv")
 avgOne.topXContracts()
-print(avgOne.getAverage())
+#print(avgOne.getAverage())
+#print(avgOne.topXPlayers)
 print(avgOne.convertToWebsite())
