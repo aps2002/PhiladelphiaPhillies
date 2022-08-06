@@ -31,6 +31,7 @@ class Average:
         new['Salary'] = new['Salary'].str.replace('$', '')
         new['Salary'] = new['Salary'].astype(str).astype(float)
         sorted_df = new.sort_values(by=['Salary'], ascending=False)
+        df.drop(columns=['Player'])
         self.sorted_df = sorted_df
 
     def topXContracts(self):
@@ -44,9 +45,12 @@ class Average:
 
     def convertToWebsite(self, websiteName):
         result = self.sorted_df.to_html()
+
         text_file = open(websiteName, "w")
+        text_file.write("<h1>Projected Salary</h1>")
+        text_file.write("<h3>"+str(self.avg)+"</h3>")
+
         text_file.write(result)
-        text_file.write(str(self.avg))
         text_file.close()
         return text_file
 
