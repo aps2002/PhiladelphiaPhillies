@@ -3,19 +3,16 @@ from urllib.request import urlopen
 import csv
 import pandas as pd
 import matplotlib.pyplot as plt
-import numpy as np
 class Average:
     def __init__(self, url, outputFile, numTops):
         self.url  =url
         self.outputFile = outputFile
         self.numTops = numTops
-        self.avg=0
 
     def getData(self):
         html = urlopen(self.url).read()
         soup = BeautifulSoup(html, features="html.parser")
         table = soup.select_one("table")
-        # python3 just use th.text
         headers = ["Player", "Salary", "Year", "Level"]
         print (headers)
         with open(self.outputFile, "w") as f:
@@ -32,6 +29,7 @@ class Average:
         new['Salary'] = new['Salary'].str.replace(',', '')
         new['Salary'] = new['Salary'].str.replace('$', '')
         new['Salary'] = new['Salary'].astype(str).astype(float)
+
         sorted_df = new.sort_values(by=['Salary'], ascending=False)
         df.drop(columns=['Player'])
         self.sorted_df = sorted_df
@@ -44,13 +42,20 @@ class Average:
         self.avg =  round(self.topXPlayers["Salary"].mean(),2)
         return self.avg
 
+    def generateBarGraph(self):
+        fig, ax = plt.subplots()
+        ax.title.set_text("Salary Distribution")
+        ax.set_xticks(range(len(self.topXPlayers["Salary"])))
+
+        fig = self.topXPlayers['Salary'].value_counts().plot(ax=ax, kind='hist').figure
+        fig.savefig("histogramOutput.png")
 
     def convertToWebsite(self):
         result = self.topXPlayers.to_html()
-
+        self.generateBarGraph()
         text_file = '''
         <style>
-        /* Style the button that is used to open and close the collapsible content */
+          /* Style the button that is used to open and close the collapsible content */
         .collapsible {
           background-color: #eee;
           color: #444;
@@ -77,12 +82,27 @@ class Average:
         }
         </style>
         <body>
+        <h1>Projected Salary</h1>
+        <h3>
         '''
-        text_file+="<h1>Projected Salary</h1>"
-        text_file+=("<h3>"+str(self.getAverage())+"</h3>")
-        text_file += '<div class="content">'
+        text_file+=str(self.avg)
+        text_file+='''
+        </h3>
+
+        <button type="button" class="collapsible">Open Collapsible</button>
+
+        <div class="content">
+        '''
         text_file+=(result)
-        text_file += '''
+        text_file +='''
+        </div>
+
+        <button type="button" class="collapsible">See Salary Distribution</button>
+        <div class="content">
+          <img src="https://www.pythonanywhere.com/user/apsb123/files/home/apsb123/mysite/histogramOutput.png" alt="Histogram of data">
+        </div>
+        <p><a href="/">Click here to run Again</a>
+
         <script>
           var coll = document.getElementsByClassName("collapsible");
           var i;
@@ -99,18 +119,10 @@ class Average:
             });
           }
         </script>
-        <p><a href="/">Click here to calculate again</a>
         </body>
         '''
         return text_file
 
-    def generateBarGraph(self):
-        fig, ax = plt.subplots()
-        ax.title.set_text("Salary Distribution")
-        ax.set_xticks(range(len(self.topXPlayers["Salary"])))
-
-        fig = self.topXPlayers['Salary'].value_counts().plot(ax=ax, kind='hist').figure
-        fig.savefig("histogramOutput.png")
 
 
 
@@ -120,7 +132,7 @@ avgOne = Average('https://questionnaire-148920.appspot.com/swe/data.html', "outp
 avgOne.getData()
 avgOne.convertToDf("output.csv")
 avgOne.topXContracts()
-#print(avgOne.getAverage())
+avgOne.getAverage()
 #print(avgOne.topXPlayers)
-#print(avgOne.convertToWebsite())
-avgOne.generateBarGraph()
+print(avgOne.convertToWebsite())
+#avgOne.generateBarGraph()
