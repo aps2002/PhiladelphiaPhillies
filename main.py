@@ -2,7 +2,8 @@ from bs4 import BeautifulSoup
 from urllib.request import urlopen
 import csv
 import pandas as pd
-
+import matplotlib.pyplot as plt
+import numpy as np
 class Average:
     def __init__(self, url, outputFile, numTops):
         self.url  =url
@@ -103,10 +104,23 @@ class Average:
         '''
         return text_file
 
+    def generateBarGraph(self):
+        fig, ax = plt.subplots()
+        ax.title.set_text("Salary Distribution")
+        ax.set_xticks(range(len(self.topXPlayers["Salary"])))
+
+        fig = self.topXPlayers['Salary'].value_counts().plot(ax=ax, kind='hist').figure
+        fig.savefig("histogramOutput.png")
+
+
+
+
+
 avgOne = Average('https://questionnaire-148920.appspot.com/swe/data.html', "output.csv", 125)
 avgOne.getData()
 avgOne.convertToDf("output.csv")
 avgOne.topXContracts()
 #print(avgOne.getAverage())
 #print(avgOne.topXPlayers)
-print(avgOne.convertToWebsite())
+#print(avgOne.convertToWebsite())
+avgOne.generateBarGraph()
