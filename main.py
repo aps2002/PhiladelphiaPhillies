@@ -40,6 +40,7 @@ class Average:
 
     def getAverage(self):
         self.avg =  round(self.topXPlayers["Salary"].mean(),2)
+        self.avg = "${:0,.2f}".format(self.avg)
         return self.avg
 
     def generateBarGraph(self):
@@ -55,6 +56,15 @@ class Average:
         self.generateBarGraph()
         text_file = '''
         <style>
+
+            #content {
+                position: relative;
+            }
+            #content img {
+                position: absolute;
+                top: 0px;
+                right: 0px;
+            }
           /* Style the button that is used to open and close the collapsible content */
         .collapsible {
           background-color: #eee;
@@ -66,6 +76,18 @@ class Average:
           text-align: left;
           outline: none;
           font-size: 15px;
+        }
+        .button {
+            display: block;
+            width: 200px;
+            height: 25px;
+            background: #4E9CAF;
+            padding: 10px;
+            text-align: center;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+            line-height: 25px;
         }
 
         /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
@@ -80,8 +102,18 @@ class Average:
           overflow: hidden;
           background-color: #f1f1f1;
         }
+        h1 {
+            text-align:center;
+        }
+        h3 {
+            text-align:center;
+        }
         </style>
         <body>
+        <div id="content">
+            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/f/f0/Philadelphia_Phillies_%282019%29_logo.svg/800px-Philadelphia_Phillies_%282019%29_logo.svg.png" class="ribbon" alt="Phillies Logo" width="100" height="100"/>
+            <div> </div>
+        </div>
         <h1>Projected Salary</h1>
         <h3>
         '''
@@ -89,7 +121,7 @@ class Average:
         text_file+='''
         </h3>
 
-        <button type="button" class="collapsible">Open Collapsible</button>
+        <button type="button" class="collapsible">Show Top 125 Player Data</button>
 
         <div class="content">
         '''
@@ -101,7 +133,7 @@ class Average:
         <div class="content">
           <img src="https://www.pythonanywhere.com/user/apsb123/files/home/apsb123/mysite/histogramOutput.png" alt="Histogram of data">
         </div>
-        <p><a href="/">Click here to run Again</a>
+        <p> <a class="button" href="/">Click here to run again</a>
 
         <script>
           var coll = document.getElementsByClassName("collapsible");
@@ -122,7 +154,6 @@ class Average:
         </body>
         '''
         return text_file
-
 
 
 
