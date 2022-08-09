@@ -1,4 +1,14 @@
-<style>
+
+        <style>
+
+            #content {
+                position: relative;
+            }
+            #content img {
+                position: absolute;
+                top: 0px;
+                right: 0px;
+            }
           /* Style the button that is used to open and close the collapsible content */
         .collapsible {
           background-color: #eee;
@@ -10,6 +20,18 @@
           text-align: left;
           outline: none;
           font-size: 15px;
+        }
+        .button {
+            display: block;
+            width: 200px;
+            height: 25px;
+            background: #4E9CAF;
+            padding: 10px;
+            text-align: center;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+            line-height: 25px;
         }
 
         /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
@@ -24,12 +46,24 @@
           overflow: hidden;
           background-color: #f1f1f1;
         }
+        h1 {
+            text-align:center;
+        }
+        h3 {
+            text-align:center;
+        }
         </style>
         <body>
+        <div id="content">
+            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/f/f0/Philadelphia_Phillies_%282019%29_logo.svg/800px-Philadelphia_Phillies_%282019%29_logo.svg.png" class="ribbon" alt="Phillies Logo" width="100" height="100"/>
+            <div> </div>
+        </div>
         <h1>Projected Salary</h1>
-        <h3>16646251.29</h3>
+        <h3>
+        $16,575,679.86
+        </h3>
 
-        <button type="button" class="collapsible">Open Collapsible</button>
+        <button type="button" class="collapsible">Show Top 125 Player Data</button>
 
         <div class="content">
         <table border="1" class="dataframe">
@@ -79,9 +113,23 @@
       <td>MLB</td>
     </tr>
     <tr>
+      <th>159</th>
+      <td>Cabrera, Miguel</td>
+      <td>28000000.0</td>
+      <td>2016</td>
+      <td>MLB</td>
+    </tr>
+    <tr>
       <th>499</th>
       <td>Hernandez, Felix</td>
       <td>25857143.0</td>
+      <td>2016</td>
+      <td>MLB</td>
+    </tr>
+    <tr>
+      <th>970</th>
+      <td>Sabathia, CC</td>
+      <td>25000000.0</td>
       <td>2016</td>
       <td>MLB</td>
     </tr>
@@ -107,22 +155,15 @@
       <td>MLB</td>
     </tr>
     <tr>
-      <th>970</th>
-      <td>Sabathia, CC</td>
-      <td>25000000.0</td>
+      <th>171</th>
+      <td>Cano, Robinson</td>
+      <td>24000000.0</td>
       <td>2016</td>
       <td>MLB</td>
     </tr>
     <tr>
       <th>345</th>
       <td>Fielder, Prince</td>
-      <td>24000000.0</td>
-      <td>2016</td>
-      <td>MLB</td>
-    </tr>
-    <tr>
-      <th>171</th>
-      <td>Cano, Robinson</td>
       <td>24000000.0</td>
       <td>2016</td>
       <td>MLB</td>
@@ -170,15 +211,15 @@
       <td>MLB</td>
     </tr>
     <tr>
-      <th>908</th>
-      <td>Reyes, Jose</td>
+      <th>1077</th>
+      <td>Tanaka, Masahiro</td>
       <td>22000000.0</td>
       <td>2016</td>
       <td>MLB</td>
     </tr>
     <tr>
-      <th>1077</th>
-      <td>Tanaka, Masahiro</td>
+      <th>908</th>
+      <td>Reyes, Jose</td>
       <td>22000000.0</td>
       <td>2016</td>
       <td>MLB</td>
@@ -205,20 +246,6 @@
       <td>MLB</td>
     </tr>
     <tr>
-      <th>1166</th>
-      <td>Werth, Jayson</td>
-      <td>21571429.0</td>
-      <td>2016</td>
-      <td>MLB</td>
-    </tr>
-    <tr>
-      <th>321</th>
-      <td>Ellsbury, Jacoby</td>
-      <td>21142857.0</td>
-      <td>2016</td>
-      <td>MLB</td>
-    </tr>
-    <tr>
       <th>260</th>
       <td>Davis, Chris</td>
       <td>21118782.0</td>
@@ -240,15 +267,15 @@
       <td>MLB</td>
     </tr>
     <tr>
-      <th>163</th>
-      <td>Cain, Matt</td>
+      <th>194</th>
+      <td>Cespedes, Yoenis</td>
       <td>20833333.0</td>
       <td>2016</td>
       <td>MLB</td>
     </tr>
     <tr>
-      <th>194</th>
-      <td>Cespedes, Yoenis</td>
+      <th>163</th>
+      <td>Cain, Matt</td>
       <td>20833333.0</td>
       <td>2016</td>
       <td>MLB</td>
@@ -282,15 +309,15 @@
       <td>MLB</td>
     </tr>
     <tr>
-      <th>126</th>
-      <td>Braun, Ryan</td>
+      <th>1191</th>
+      <td>Wright, David</td>
       <td>20000000.0</td>
       <td>2016</td>
       <td>MLB</td>
     </tr>
     <tr>
-      <th>1191</th>
-      <td>Wright, David</td>
+      <th>1144</th>
+      <td>Votto, Joey</td>
       <td>20000000.0</td>
       <td>2016</td>
       <td>MLB</td>
@@ -303,15 +330,15 @@
       <td>MLB</td>
     </tr>
     <tr>
-      <th>206</th>
-      <td>Choo, Shin-Soo</td>
+      <th>126</th>
+      <td>Braun, Ryan</td>
       <td>20000000.0</td>
       <td>2016</td>
       <td>MLB</td>
     </tr>
     <tr>
-      <th>1144</th>
-      <td>Votto, Joey</td>
+      <th>206</th>
+      <td>Choo, Shin-Soo</td>
       <td>20000000.0</td>
       <td>2016</td>
       <td>MLB</td>
@@ -331,8 +358,8 @@
       <td>MLB</td>
     </tr>
     <tr>
-      <th>682</th>
-      <td>Martinez, Victor</td>
+      <th>56</th>
+      <td>Bailey, Homer</td>
       <td>18000000.0</td>
       <td>2016</td>
       <td>MLB</td>
@@ -345,15 +372,15 @@
       <td>MLB</td>
     </tr>
     <tr>
-      <th>56</th>
-      <td>Bailey, Homer</td>
+      <th>1204</th>
+      <td>Zimmermann, Jordan</td>
       <td>18000000.0</td>
       <td>2016</td>
       <td>MLB</td>
     </tr>
     <tr>
-      <th>1204</th>
-      <td>Zimmermann, Jordan</td>
+      <th>682</th>
+      <td>Martinez, Victor</td>
       <td>18000000.0</td>
       <td>2016</td>
       <td>MLB</td>
@@ -387,15 +414,15 @@
       <td>MLB</td>
     </tr>
     <tr>
-      <th>694</th>
-      <td>McCann, Brian</td>
+      <th>519</th>
+      <td>Holliday, Matt</td>
       <td>17000000.0</td>
       <td>2016</td>
       <td>MLB</td>
     </tr>
     <tr>
-      <th>519</th>
-      <td>Holliday, Matt</td>
+      <th>694</th>
+      <td>McCann, Brian</td>
       <td>17000000.0</td>
       <td>2016</td>
       <td>MLB</td>
@@ -436,15 +463,15 @@
       <td>MLB</td>
     </tr>
     <tr>
-      <th>604</th>
-      <td>Lackey, John</td>
+      <th>801</th>
+      <td>Ortiz, David</td>
       <td>16000000.0</td>
       <td>2016</td>
       <td>MLB</td>
     </tr>
     <tr>
-      <th>801</th>
-      <td>Ortiz, David</td>
+      <th>604</th>
+      <td>Lackey, John</td>
       <td>16000000.0</td>
       <td>2016</td>
       <td>MLB</td>
@@ -453,13 +480,6 @@
       <th>252</th>
       <td>Cueto, Johnny</td>
       <td>15833333.0</td>
-      <td>2016</td>
-      <td>MLB</td>
-    </tr>
-    <tr>
-      <th>1170</th>
-      <td>Wieters, Matt</td>
-      <td>15800000.0</td>
       <td>2016</td>
       <td>MLB</td>
     </tr>
@@ -478,6 +498,20 @@
       <td>MLB</td>
     </tr>
     <tr>
+      <th>1170</th>
+      <td>Wieters, Matt</td>
+      <td>15800000.0</td>
+      <td>2016</td>
+      <td>MLB</td>
+    </tr>
+    <tr>
+      <th>256</th>
+      <td>Danks, John</td>
+      <td>15750000.0</td>
+      <td>2016</td>
+      <td>MLB</td>
+    </tr>
+    <tr>
       <th>34</th>
       <td>Andrus, Elvis</td>
       <td>15250000.0</td>
@@ -487,6 +521,13 @@
     <tr>
       <th>86</th>
       <td>Beltran, Carlos</td>
+      <td>15000000.0</td>
+      <td>2016</td>
+      <td>MLB</td>
+    </tr>
+    <tr>
+      <th>677</th>
+      <td>Martin, Russell</td>
       <td>15000000.0</td>
       <td>2016</td>
       <td>MLB</td>
@@ -506,13 +547,6 @@
       <td>MLB</td>
     </tr>
     <tr>
-      <th>677</th>
-      <td>Martin, Russell</td>
-      <td>15000000.0</td>
-      <td>2016</td>
-      <td>MLB</td>
-    </tr>
-    <tr>
       <th>250</th>
       <td>Cruz, Nelson</td>
       <td>14250000.0</td>
@@ -520,22 +554,8 @@
       <td>MLB</td>
     </tr>
     <tr>
-      <th>725</th>
-      <td>Molina, Yadier</td>
-      <td>14200000.0</td>
-      <td>2016</td>
-      <td>MLB</td>
-    </tr>
-    <tr>
-      <th>729</th>
-      <td>Montero, Miguel</td>
-      <td>14000000.0</td>
-      <td>2016</td>
-      <td>MLB</td>
-    </tr>
-    <tr>
-      <th>1203</th>
-      <td>Zimmerman, Ryan</td>
+      <th>158</th>
+      <td>Cabrera, Melky</td>
       <td>14000000.0</td>
       <td>2016</td>
       <td>MLB</td>
@@ -555,15 +575,22 @@
       <td>MLB</td>
     </tr>
     <tr>
-      <th>591</th>
-      <td>Kinsler, Ian</td>
+      <th>729</th>
+      <td>Montero, Miguel</td>
       <td>14000000.0</td>
       <td>2016</td>
       <td>MLB</td>
     </tr>
     <tr>
-      <th>158</th>
-      <td>Cabrera, Melky</td>
+      <th>1203</th>
+      <td>Zimmerman, Ryan</td>
+      <td>14000000.0</td>
+      <td>2016</td>
+      <td>MLB</td>
+    </tr>
+    <tr>
+      <th>591</th>
+      <td>Kinsler, Ian</td>
       <td>14000000.0</td>
       <td>2016</td>
       <td>MLB</td>
@@ -611,22 +638,15 @@
       <td>MLB</td>
     </tr>
     <tr>
-      <th>486</th>
-      <td>Headley, Chase</td>
-      <td>13000000.0</td>
-      <td>2016</td>
-      <td>MLB</td>
-    </tr>
-    <tr>
-      <th>541</th>
-      <td>Jackson, Edwin</td>
-      <td>13000000.0</td>
-      <td>2016</td>
-      <td>MLB</td>
-    </tr>
-    <tr>
       <th>554</th>
       <td>Jimenez, Ubaldo</td>
+      <td>13000000.0</td>
+      <td>2016</td>
+      <td>MLB</td>
+    </tr>
+    <tr>
+      <th>144</th>
+      <td>Buchholz, Clay</td>
       <td>13000000.0</td>
       <td>2016</td>
       <td>MLB</td>
@@ -646,9 +666,23 @@
       <td>MLB</td>
     </tr>
     <tr>
-      <th>144</th>
-      <td>Buchholz, Clay</td>
+      <th>541</th>
+      <td>Jackson, Edwin</td>
       <td>13000000.0</td>
+      <td>2016</td>
+      <td>MLB</td>
+    </tr>
+    <tr>
+      <th>486</th>
+      <td>Headley, Chase</td>
+      <td>13000000.0</td>
+      <td>2016</td>
+      <td>MLB</td>
+    </tr>
+    <tr>
+      <th>574</th>
+      <td>Kazmir, Scott</td>
+      <td>12666667.0</td>
       <td>2016</td>
       <td>MLB</td>
     </tr>
@@ -660,15 +694,15 @@
       <td>MLB</td>
     </tr>
     <tr>
-      <th>478</th>
-      <td>Hardy, J.J.</td>
+      <th>394</th>
+      <td>Garza, Matt</td>
       <td>12500000.0</td>
       <td>2016</td>
       <td>MLB</td>
     </tr>
     <tr>
-      <th>394</th>
-      <td>Garza, Matt</td>
+      <th>478</th>
+      <td>Hardy, J.J.</td>
       <td>12500000.0</td>
       <td>2016</td>
       <td>MLB</td>
@@ -695,13 +729,6 @@
       <td>MLB</td>
     </tr>
     <tr>
-      <th>425</th>
-      <td>Gonzalez, Gio</td>
-      <td>12100000.0</td>
-      <td>2016</td>
-      <td>MLB</td>
-    </tr>
-    <tr>
       <th>640</th>
       <td>Longoria, Evan</td>
       <td>12100000.0</td>
@@ -709,15 +736,15 @@
       <td>MLB</td>
     </tr>
     <tr>
-      <th>287</th>
-      <td>Dickey, R.A.</td>
-      <td>12000000.0</td>
+      <th>425</th>
+      <td>Gonzalez, Gio</td>
+      <td>12100000.0</td>
       <td>2016</td>
       <td>MLB</td>
     </tr>
     <tr>
-      <th>774</th>
-      <td>Nolasco, Ricky</td>
+      <th>511</th>
+      <td>Hill, Aaron</td>
       <td>12000000.0</td>
       <td>2016</td>
       <td>MLB</td>
@@ -730,15 +757,22 @@
       <td>MLB</td>
     </tr>
     <tr>
-      <th>511</th>
-      <td>Hill, Aaron</td>
+      <th>618</th>
+      <td>Leake, Mike</td>
       <td>12000000.0</td>
       <td>2016</td>
       <td>MLB</td>
     </tr>
     <tr>
-      <th>618</th>
-      <td>Leake, Mike</td>
+      <th>774</th>
+      <td>Nolasco, Ricky</td>
+      <td>12000000.0</td>
+      <td>2016</td>
+      <td>MLB</td>
+    </tr>
+    <tr>
+      <th>287</th>
+      <td>Dickey, R.A.</td>
       <td>12000000.0</td>
       <td>2016</td>
       <td>MLB</td>
@@ -807,36 +841,8 @@
       <td>MLB</td>
     </tr>
     <tr>
-      <th>922</th>
-      <td>Robertson, David</td>
-      <td>11000000.0</td>
-      <td>2016</td>
-      <td>MLB</td>
-    </tr>
-    <tr>
-      <th>539</th>
-      <td>Iwakuma, Hisashi</td>
-      <td>11000000.0</td>
-      <td>2016</td>
-      <td>MLB</td>
-    </tr>
-    <tr>
-      <th>665</th>
-      <td>Markakis, Nick</td>
-      <td>11000000.0</td>
-      <td>2016</td>
-      <td>MLB</td>
-    </tr>
-    <tr>
       <th>811</th>
       <td>Papelbon, Jonathan</td>
-      <td>11000000.0</td>
-      <td>2016</td>
-      <td>MLB</td>
-    </tr>
-    <tr>
-      <th>247</th>
-      <td>Crisp, Covelli</td>
       <td>11000000.0</td>
       <td>2016</td>
       <td>MLB</td>
@@ -849,9 +855,44 @@
       <td>MLB</td>
     </tr>
     <tr>
+      <th>665</th>
+      <td>Markakis, Nick</td>
+      <td>11000000.0</td>
+      <td>2016</td>
+      <td>MLB</td>
+    </tr>
+    <tr>
+      <th>247</th>
+      <td>Crisp, Covelli</td>
+      <td>11000000.0</td>
+      <td>2016</td>
+      <td>MLB</td>
+    </tr>
+    <tr>
+      <th>539</th>
+      <td>Iwakuma, Hisashi</td>
+      <td>11000000.0</td>
+      <td>2016</td>
+      <td>MLB</td>
+    </tr>
+    <tr>
+      <th>922</th>
+      <td>Robertson, David</td>
+      <td>11000000.0</td>
+      <td>2016</td>
+      <td>MLB</td>
+    </tr>
+    <tr>
       <th>977</th>
       <td>Samardzija, Jeff</td>
       <td>10800000.0</td>
+      <td>2016</td>
+      <td>MLB</td>
+    </tr>
+    <tr>
+      <th>46</th>
+      <td>Arrieta, Jake</td>
+      <td>10700000.0</td>
       <td>2016</td>
       <td>MLB</td>
     </tr>
@@ -898,23 +939,16 @@
       <td>MLB</td>
     </tr>
     <tr>
-      <th>476</th>
-      <td>Happ, J.A.</td>
-      <td>10000000.0</td>
-      <td>2016</td>
-      <td>MLB</td>
-    </tr>
-    <tr>
-      <th>517</th>
-      <td>Holland, Derek</td>
-      <td>10000000.0</td>
-      <td>2016</td>
-      <td>MLB</td>
-    </tr>
-    <tr>
       <th>322</th>
       <td>Encarnacion, Edwin</td>
       <td>10000000.0</td>
+      <td>2016</td>
+      <td>MLB</td>
+    </tr>
+    <tr>
+      <th>146</th>
+      <td>Bumgarner, Madison</td>
+      <td>9950000.0</td>
       <td>2016</td>
       <td>MLB</td>
     </tr>
@@ -924,9 +958,9 @@
 
         <button type="button" class="collapsible">See Salary Distribution</button>
         <div class="content">
-          <img src="histogramOutput.png" alt="Histogram of data">
+          <img src="https://www.pythonanywhere.com/user/apsb123/files/home/apsb123/mysite/histogramOutput.png" alt="Histogram of data">
         </div>
-        <p><a href="/">Click here to run Again</a>
+        <p> <a class="button" href="/">Click here to run again</a>
 
         <script>
           var coll = document.getElementsByClassName("collapsible");
@@ -945,3 +979,4 @@
           }
         </script>
         </body>
+        

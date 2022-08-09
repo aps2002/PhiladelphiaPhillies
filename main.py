@@ -51,7 +51,7 @@ class Average:
         fig = self.topXPlayers['Salary'].value_counts().plot(ax=ax, kind='hist').figure
         fig.savefig("histogramOutput.png")
 
-    def convertToWebsite(self):
+    def convertToWebsite(self, fileName):
         result = self.topXPlayers.to_html()
         self.generateBarGraph()
         text_file = '''
@@ -153,9 +153,11 @@ class Average:
         </script>
         </body>
         '''
+        file = open(fileName, "w")
+        n = file.write(text_file)
+        file.close()
+
         return text_file
-
-
 
 
 
@@ -165,5 +167,5 @@ avgOne.convertToDf("output.csv")
 avgOne.topXContracts()
 avgOne.getAverage()
 #print(avgOne.topXPlayers)
-print(avgOne.convertToWebsite())
+print(avgOne.convertToWebsite("index.html"))
 #avgOne.generateBarGraph()
