@@ -21,7 +21,7 @@ class TestAverage(TestCase):
         self.checkOutput.convertToDf("out.csv")
         self.checkOutput.topXContracts()
         actual = self.checkOutput.getAverage()
-        expected = 16582060.81
+        expected = "${:0,.2f}".format(16582060.81)
         self.assertEqual(expected, actual)
 
     def test_get_average_on_outputTestOne(self):
@@ -30,7 +30,7 @@ class TestAverage(TestCase):
         self.checkOutput.convertToDf("outputTestOne.csv")
         self.checkOutput.topXContracts()
         actual = self.checkOutput.getAverage()
-        expected = 16299727.48
+        expected = "${:0,.2f}".format(16299727.48)
         self.assertEqual(expected, actual)
 
     def test_get_average_on_outputTestTwo(self):
@@ -39,5 +39,5 @@ class TestAverage(TestCase):
         self.checkOutput.convertToDf("outputTestTwo.csv")
         self.checkOutput.topXContracts()
         actual = self.checkOutput.getAverage()
-        expected = 16306327.48
+        expected = "${:0,.2f}".format(16306327.48)
         self.assertEqual(expected, actual)
