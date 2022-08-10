@@ -10,7 +10,7 @@ class Average:
 
     def __init__(self, url, outputFile, numTops):
         # URL of data source
-        self.url  =url
+        self.url  = url
         # Name of CSV file containing data scraped
         self.outputFile = outputFile
         # number of top player to take average of
@@ -45,16 +45,13 @@ class Average:
         new['Salary'] = new['Salary'].str.replace('$', '')
         # Replacing blank and "no salary data" with the min value, since we can assume they
         # make at least the minimum salary and MLB player can make
-        new['Salary'] = new['Salary'].str.replace(r'^\s*$',"507000", regex=True)
-        new['Salary'] = new['Salary'].str.replace('no salary data', "507000", regex=True)
-        new["Salary"] = new["Salary"].replace(np.nan, "507000")
+        new['Salary'] = new['Salary'].str.replace(r'^\s*$',"507500", regex=True)
+        new['Salary'] = new['Salary'].str.replace('no salary data', "507500", regex=True)
+        new["Salary"] = new["Salary"].replace(np.nan, "507500")
         new['Salary'] = new['Salary'].astype(str).astype(float)
 
-        # Creates new df and sorts by salary
-        sorted_df = new.sort_values(by=['Salary'], ascending=False)
-        # reset indices such that they are in ascending order based off salary
-        self.sorted_df = sorted_df.reset_index()
-
+        # reset indices such that they are in ascending order based off salary and drop the index coloumn
+        self.sorted_df = new.sort_values(by=['Salary'], ascending=False).reset_index().drop(columns=['index'])
 
     def topXContracts(self):
         '''
