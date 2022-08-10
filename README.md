@@ -20,7 +20,7 @@ There are two ways to view this project: running locally or running through my w
 6. Every time you would like to re-run, run the main.py file again
 
 ## Features
-- Filters corrupted or malformed values
+- Filters corrupted or malformed values. Assumes all players make at least $507,500 as that is the minimum possible
 - Finds and displayes top 125 players
 - Calculates the average salary of the top 125 players
 - Generates a histogram to show the distribution of salaries, **note histogram only works on computer**
